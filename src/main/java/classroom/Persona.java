@@ -1,13 +1,18 @@
 package classroom;
 
 public class Persona {
-
-    final long cedula;
+	
+	long cedula;
     String nombre;
     static int totalPersonas;
     
     static {
         totalPersonas = 0;
+    }
+    
+    public Persona() {
+    	totalPersonas++;
+    	
     }
 
     public Persona(long cedula, String nombre) {
@@ -32,12 +37,6 @@ public class Persona {
     	this.nombre = nombre;
     	totalPersonas++;
     }
-
-    public Persona() {
-    	this.cedula = 0;
-        this.nombre = "";
-        totalPersonas++;
-    }
     
     public long getCedula() {
         return cedula;
@@ -50,4 +49,17 @@ public class Persona {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+}
+
+public enum Tipo {
+	DISCIPLINAR(10, "DISCIPLINAR"), FUNDAMENTACION(20, "FUNDAMENTACION"), ELECTIVA(30, "ELECTIVA");
+	
+	private int codigo;
+	private String nombre;
+	
+	Tipo(int codigo,String nombre) {
+		this.codigo = codigo;
+		this.nombre = nombre;
+		
+	}
 }
