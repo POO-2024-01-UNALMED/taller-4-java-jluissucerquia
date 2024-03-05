@@ -17,11 +17,7 @@ public class Grupo {
     }
 
     public Grupo(int cantidadEstudiantes, Persona profesor, Asignatura asignatura, int codigo, String horario) {
-    	this.estudiantes = new Persona[cantidadEstudiantes];
-    	this.profesor = profesor;
-    	this.asignatura = asignatura;
-    	this.codigo = codigo;
-    	this.horario = horario;	
+        this(new Persona[cantidadEstudiantes], profesor, asignatura, codigo, horario);
     }
 
     public Grupo(Persona[] estudiantes, Persona profesor, Asignatura asignatura) {
@@ -30,7 +26,7 @@ public class Grupo {
         this.asignatura = asignatura;
     }
 
-    void cambiarEstudiante(Persona estudianteViejo, Persona estudianteNuevo) {
+    public void cambiarEstudiante(Persona estudianteViejo, Persona estudianteNuevo) {
         for (int i = 0; i < estudiantes.length; i++) {
             if (estudiantes[i].getCedula() == estudianteViejo.getCedula()) {
                 estudiantes[i] = estudianteNuevo;
@@ -39,7 +35,7 @@ public class Grupo {
         }
     }
     
-    void cambiarEstudiante(int indice, Persona estudiante) {
+    public void cambiarEstudiante(int indice, Persona estudiante) {
         estudiantes[indice] = estudiante;
     }
 }
